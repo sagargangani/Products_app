@@ -22,7 +22,7 @@ export const useProductStore = create((set) => ({
   fetchProducts: async()=>{
     const res= await fetch("https://products-app-xxvz.onrender.com/api/products");
     const data=await res.json();
-    consolelog("Fetch Response:", data);
+    console.log("Fetch Response:", data);
     set({products: data.products})
   },
 

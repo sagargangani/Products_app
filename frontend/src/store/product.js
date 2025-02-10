@@ -28,7 +28,7 @@ export const useProductStore = create((set) => ({
 
   deleteProduct: async (pid) => {
     try {
-      const res = await fetch(`http://localhost:3001/api/products/${pid}`, {
+      const res = await fetch(`https://products-app-xxvz.onrender.com/api/products/${pid}`, {
         method: "DELETE",
       });
   
@@ -46,7 +46,7 @@ export const useProductStore = create((set) => ({
     }
   },
   updateProduct: async (pid, updatedProduct) => {
-		const res = await fetch(`http://localhost:3001/api/products/${pid}`, {
+		const res = await fetch(`https://products-app-xxvz.onrender.com/api/products/${pid}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",

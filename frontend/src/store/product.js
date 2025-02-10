@@ -7,7 +7,7 @@ export const useProductStore = create((set) => ({
     if (!newProduct.name || !newProduct.price || !newProduct.image) {
       return { success: false, message: "All fields are required." };
     }
-    const res = await fetch("https://products-app-xxvz.onrender.com/api/products", {
+    const res = await fetch("http://localhost:3001/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,15 +20,15 @@ export const useProductStore = create((set) => ({
     return { success: true, message: "Product created successfully." };
   },
   fetchProducts: async()=>{
-    const res= await fetch("https://products-app-xxvz.onrender.com/api/products");
+    const res= await fetch("http://localhost:3001/api/products");
     const data=await res.json();
-    console.log("Fetch Response:", data);
+    consolelog("Fetch Response:", data);
     set({products: data.products})
   },
 
   deleteProduct: async (pid) => {
     try {
-      const res = await fetch(`https://products-app-xxvz.onrender.com/api/products/${pid}`, {
+      const res = await fetch(`http://localhost:3001/api/products/${pid}`, {
         method: "DELETE",
       });
   
@@ -46,7 +46,7 @@ export const useProductStore = create((set) => ({
     }
   },
   updateProduct: async (pid, updatedProduct) => {
-		const res = await fetch(`https://products-app-xxvz.onrender.com/api/products/${pid}`, {
+		const res = await fetch(`http://localhost:3001/api/products/${pid}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",

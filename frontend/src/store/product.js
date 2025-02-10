@@ -20,8 +20,9 @@ export const useProductStore = create((set) => ({
     return { success: true, message: "Product created successfully." };
   },
   fetchProducts: async()=>{
-    const res= await fetch("http://localhost:3001/api/products");
+    const res= await fetch("https://products-app-xxvz.onrender.com/api/products");
     const data=await res.json();
+    console.log("Fetch Response:", data);
     set({products: data.products})
   },
 
